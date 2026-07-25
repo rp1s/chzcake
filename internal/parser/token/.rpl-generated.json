@@ -1,0 +1,14 @@
+{
+  "models": {
+    "Position": [
+      "position/model.gen.go"
+    ],
+    "Token": [
+      "token/model.gen.go"
+    ],
+    "__types__": [
+      "types.gen.go",
+      "types/types.gen.go"
+    ]
+  }
+}

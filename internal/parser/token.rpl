@@ -1,0 +1,75 @@
+package models
+
+enum TokenKind {
+	INVALID       // unrecognized token
+	LINE_COMMENT  // comment
+	BLOCK_COMMENT // /* comment */
+	WHITESPACE    // whitespace
+	END_OF_FILE
+
+	INTEGER_LITERAL    // 123
+	IMAGINARY_LITERAL  // 123i
+	FLOAT_LITERAL      // 12.3
+	STRING_LITERAL     // "abc"
+	RAW_STRING_LITERAL // `abc`
+	CHARACTER_LITERAL  // 'a'
+	IDENTIFIER         // NameVar
+
+	TRUE
+	FALSE
+
+	NULL // null
+	THIS // this
+	MAP  // map
+
+	PACKAGE // package
+	USE     // use
+	IMPORT  // import
+	AS      // as
+
+	PUB // pub
+	LET // let
+
+	ASSIGN      // =
+	RIGHT_ARROW // ->
+	LEFT_ARROW  // <-
+
+	MINUS   // -
+	PLUS    // +
+	STAR    // *
+	SLASH   // /
+	PERCENT // %
+	CARET   // ^
+
+	ATTRIBUTE_START // attribute #[ tokens
+	ATTRIBUTE_END   // attribute ]
+
+	TEMPLATE_START // &{ tokens
+	TEMPLATE_END   // }
+
+	AMPERSAND // &
+
+	LEFT_PAREN    // (
+	RIGHT_PAREN   // )
+	LEFT_BRACE    // {
+	RIGHT_BRACE   // }
+	LEFT_BRACKET  // [
+	RIGHT_BRACKET // ]
+
+	COLON        // :
+	DOUBLE_COLON // ::
+	DOT          // .
+	COMMA        // ,
+}
+
+model Token {
+    Kind TokenKind
+    Pos Position
+}
+
+model Position {
+	FileName string
+    Line uint64
+    Column uint64
+    Offset uint64
+}
