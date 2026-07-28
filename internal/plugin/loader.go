@@ -22,6 +22,8 @@ type Metadata struct {
 	Name        string
 	Version     string
 	Description string
+	Author      string
+	License     string
 }
 
 // Plugin is a component which has passed the metadata contract check.
@@ -155,13 +157,13 @@ func validatePluginFile(path string) error {
 
 func parseMetadata(output []byte) (Metadata, error) {
 	wave := strings.TrimSpace(string(output))
-	jsonRecord := waveRecordKey.ReplaceAllString(wave, `${1}"${2}"${3}`)
+	jsonRecord := waveRecordKey.ReplaceAllString(wave, `${1}"${2}"${3}"${4}"${5}`)
 
 	var fields map[string]json.RawMessage
 	if err := json.Unmarshal([]byte(jsonRecord), &fields); err != nil {
 		return Metadata{}, fmt.Errorf("decode WAVE record: %w", err)
 	}
-	for _, name := range [...]string{"name", "version", "description"} {
+	for _, name := range [...]string{"name", "version", "description", "author", "license"} {
 		if _, ok := fields[name]; !ok {
 			return Metadata{}, fmt.Errorf("metadata record has no %q field", name)
 		}
