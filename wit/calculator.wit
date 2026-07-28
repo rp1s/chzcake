@@ -1,9 +1,0 @@
-package test:calculator@0.1.0;
-
-interface api {
-    add: func(a: u32, b: u32) -> u32;
-}
-
-world calculator-plugin {
-    export api;
-}

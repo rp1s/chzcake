@@ -1,0 +1,15 @@
+package chzcake:metadata@1.0.0;
+
+interface metadata {
+    record info {
+        name: string,
+        version: string,
+        description: string,
+    }
+
+    get: func() -> info;
+}
+
+world plugin {
+    export metadata;
+}
