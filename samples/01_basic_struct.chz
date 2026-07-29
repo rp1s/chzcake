@@ -1,0 +1,6 @@
+package simple_01
+
+struct User {
+    pub name: string
+    pub age: uint
+}
