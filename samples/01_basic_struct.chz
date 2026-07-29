@@ -1,5 +1,10 @@
 package simple_01
 
+use (
+    // lang name
+    "golang" as go
+)
+
 struct User {
     pub name: string
     pub age: uint
