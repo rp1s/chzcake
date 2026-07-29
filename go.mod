@@ -1,6 +1,6 @@
 module github.com/rp1s/chzcake
 
-go 1.25.6
+go 1.26
 
 require github.com/spf13/cobra v1.10.2
 
