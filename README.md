@@ -8,7 +8,7 @@
 
 ## Синтаксис
 
-```
+``` rust
 package model
 
 use (
